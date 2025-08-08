@@ -18,6 +18,8 @@ jobs:
               uses: "actions/checkout@v2"
             - name: "Install dependencies"
               run: "npm install"
+              working-directory: React-ci-cd
             - name: "List directories"
               run: ls -la
+              working-directory: React-ci-cd
 
