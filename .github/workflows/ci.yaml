@@ -22,4 +22,14 @@ jobs:
             - name: "List directories"
               run: ls -la
               working-directory: React-ci-cd
+            - name: "Run Build"
+              run: num run build
+              working-directory: React-ci-cd
+
+            - name: "Upload product-ready build files"
+              uses: actions/upload-artifacts@v4
+              with:
+                name: build
+                path: dist
+                working-directory: React-ci-cd
 
