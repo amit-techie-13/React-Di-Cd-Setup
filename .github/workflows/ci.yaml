@@ -30,6 +30,6 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: build
-                path: dist
-                working-directory: React-ci-cd
+                path: React-ci-cd/dist
+           
 
