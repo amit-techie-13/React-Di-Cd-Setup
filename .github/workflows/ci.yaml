@@ -1,17 +1,23 @@
-name: "React-CI-CD pipeline/workflow"
-on:
+name: "React-CI-CD pipeline/workflow" # name of the pipeline
+on: #events from on to line 6, when we push the event is triggered
     push:
         branches:
             - master
             - main
 jobs:
-    build-and-test:
-        runs-on: ubuntu-latest
+    build-and-test: # job name
+        runs-on: ubuntu-latest # runner machine
         steps:
             - name: "Setup Node Js"
-              uses: "actions/setup-node@v4"
-              with:
+              uses: "actions/setup-node@v4" # helps in defining github actions
+              with: # input to predefined actions of github
                 node-version: "21"
             - name: "Check node version"
-              run: node --version
+              run: node --version # linux command with run
+            - name: "Clone the repo"
+              uses: "actions/checkout@v2"
+            - name: "Install dependencies"
+              run: "npm install"
+            - name: "List directories"
+              run: ls -la
 
