@@ -23,7 +23,7 @@ jobs:
               run: ls -la
               working-directory: React-ci-cd
             - name: "Run Build"
-              run: num run build
+              run: npm run build
               working-directory: React-ci-cd
 
             - name: "Upload product-ready build files"
