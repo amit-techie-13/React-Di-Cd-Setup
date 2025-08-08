@@ -21,16 +21,16 @@ jobs:
       - name: "Setup Vercel CLI"
         run: npm install -g vercel
 
-      - name: "Download Build files"
-        uses: actions/download-artifact@v4
+      - name: "Download Build files from CI"
+        uses: dawidd6/action-download-artifact@v2
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          run_id: ${{ github.event.workflow_run.id }}
           name: build
-          path: React-ci-cd/dist
-          run-id: ${{ github.event.workflow_run.id }}
-          github_token: ${{ github.token }}
+          path: ./dist
 
       - name: "Debug - List files"
-        run: ls -R
+        run: ls -R ./dist
 
       - name: "Deploy to Vercel"
         run: vercel ./dist --prod --token=${{ secrets.VERCEL_TOKEN }} --confirm
