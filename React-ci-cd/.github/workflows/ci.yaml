@@ -1,9 +1,9 @@
 name: "React-CI-CD pipeline/workflow"
 on:
-        push:
-            branches:
-                - master
-                - main
+    push:
+        branches:
+            - master
+            - main
 jobs:
     build-and-test:
         runs-on: ubuntu-latest
