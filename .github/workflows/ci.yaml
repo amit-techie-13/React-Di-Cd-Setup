@@ -14,6 +14,9 @@ jobs:
                 node-version: "21"
             - name: "Check node version"
               run: node --version # linux command with run
+
+            - name: "Check os of runner"
+              run: echo "the running os is ${{runner.os}}"
             - name: "Clone the repo"
               uses: "actions/checkout@v2"
             - name: "Install dependencies"
